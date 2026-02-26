@@ -25,11 +25,11 @@
       <!-- Tabs -->
 <div class="bg-white rounded-2xl shadow-xl mb-6 p-2">
     <div class="flex gap-2 flex-wrap">
-        <button onclick="changeTab('hf')" id="tab-hf" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active">HF</button>
-        <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Zeiten</button>
-        <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tempos</button>
+        <button onclick="changeTab('hf')" id="tab-hf" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active">Frecuencia</button>
+        <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tiempos</button>
+        <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Ritmos</button>
         <button onclick="changeTab('plan')" id="tab-plan" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Plan</button>
-        <button onclick="changeTab('empfehlungen')" id="tab-empfehlungen" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tipps</button>
+        <button onclick="changeTab('empfehlungen')" id="tab-empfehlungen" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Recomendaciones</button>
     </div>
 </div>
 
@@ -58,13 +58,13 @@
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <h3 class="font-bold mb-4">Tu marca 10K</h3>
-                        <input type="number" id="min10k" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
-                        <input type="number" id="sek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
+                        <input type="number" id="min10k" placeholder="Minutos" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="sek10k" placeholder="Segundos" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                     <div>
                         <h3 class="font-bold mb-4">Tu marca maratón</h3>
-                        <input type="number" id="hMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
-                        <input type="number" id="minMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
+                        <input type="number" id="hMarathon" placeholder="Horas" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="minMarathon" placeholder="Minutos" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                 </div>
                 <div id="zeitResult"></div>
@@ -78,18 +78,18 @@
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <h3 class="font-bold mb-4">Marca 10K</h3>
-                        <input type="number" id="tMin10k" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
-                        <input type="number" id="tSek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
+                        <input type="number" id="tMin10k" placeholder="Minutos" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="tSek10k" placeholder="Segundos" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                     <div>
                         <h3 class="font-bold mb-4">Marca maratón</h3>
-                        <input type="number" id="tHMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
-                        <input type="number" id="tMinMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
+                        <input type="number" id="tHMarathon" placeholder="Horas" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="tMinMarathon" placeholder="Minutos" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                 </div>
                 <div class="mb-4">
                     <button onclick="setZiel('10k')" id="ziel10k" class="px-6 py-3 bg-indigo-600 text-white rounded-xl mr-2">10K</button>
-                    <button onclick="setZiel('marathon')" id="zielMarathon" class="px-6 py-3 bg-gray-200 rounded-xl">Marathon</button>
+                    <button onclick="setZiel('marathon')" id="zielMarathon" class="px-6 py-3 bg-gray-200 rounded-xl">Maratón</button>
                 </div>
                 <div id="tempoResult"></div>
             </div>
