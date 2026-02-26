@@ -340,12 +340,12 @@
             }
             
             var html = '<div class="space-y-3">';
-            html += '<div class="bg-green-100 p-4 rounded-xl"><div class="font-bold">Recuperación (&lt;67%)</div><div class="text-2xl">&lt; ' + Math.round(hf*0.67) + ' Bpm</div></div>';
-            html += '<div class="bg-blue-100 p-4 rounded-xl"><div class="font-bold">Zona 1 (68-72%)</div><div class="text-2xl">' + Math.round(hf*0.68) + '-' + Math.round(hf*0.72) + ' Bpm</div></div>';
-            html += '<div class="bg-cyan-100 p-4 rounded-xl"><div class="font-bold">Zona 2 (77-79%)</div><div class="text-2xl">' + Math.round(hf*0.77) + '-' + Math.round(hf*0.79) + ' Bpm</div></div>';
+            html += '<div class="bg-green-100 p-4 rounded-xl"><div class="font-bold">Recuperación (&lt;67%)</div><div class="text-2xl">&lt; ' + Math.round(hf*0.67) + ' ppm</div></div>';
+            html += '<div class="bg-blue-100 p-4 rounded-xl"><div class="font-bold">Zona 1 (68-72%)</div><div class="text-2xl">' + Math.round(hf*0.68) + '-' + Math.round(hf*0.72) + ' ppm</div></div>';
+            html += '<div class="bg-cyan-100 p-4 rounded-xl"><div class="font-bold">Zona 2 (77-79%)</div><div class="text-2xl">' + Math.round(hf*0.77) + '-' + Math.round(hf*0.79) + ' ppm</div></div>';
             html += '<div class="bg-orange-100 p-4 rounded-xl"><div class="font-bold">Zona 3 (80-84%)</div><div class="text-2xl">' + Math.round(hf*0.80) + '-' + Math.round(hf*0.84) + ' Bpm</div></div>';
-            html += '<div class="bg-red-100 p-4 rounded-xl"><div class="font-bold">Zona 4 (85-88%)</div><div class="text-2xl">' + Math.round(hf*0.85) + '-' + Math.round(hf*0.88) + ' Bpm</div></div>';
-            html += '<div class="bg-purple-100 p-4 rounded-xl"><div class="font-bold">Competición (89-92%)</div><div class="text-2xl">' + Math.round(hf*0.89) + '-' + Math.round(hf*0.92) + ' Bpm</div></div>';
+            html += '<div class="bg-red-100 p-4 rounded-xl"><div class="font-bold">Zona 4 (85-88%)</div><div class="text-2xl">' + Math.round(hf*0.85) + '-' + Math.round(hf*0.88) + ' ppm</div></div>';
+            html += '<div class="bg-purple-100 p-4 rounded-xl"><div class="font-bold">Competición (89-92%)</div><div class="text-2xl">' + Math.round(hf*0.89) + '-' + Math.round(hf*0.92) + ' ppm</div></div>';
             html += '</div>';
             document.getElementById('hfResult').innerHTML = html;
         }
@@ -391,9 +391,9 @@
             }
             
             var html = '<div class="grid md:grid-cols-3 gap-4">';
-            html += '<div class="bg-green-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">10 K</div><div class="text-3xl font-bold">' + formatTime(times.t10) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t10/10) + '/km</div></div>';
-            html += '<div class="bg-blue-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">Media maratón</div><div class="text-3xl font-bold">' + formatTime(times.t21) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t21/21.097) + '/km</div></div>';
-            html += '<div class="bg-purple-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">Maratón</div><div class="text-3xl font-bold">' + formatTime(times.t42) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t42/42.195) + '/km</div></div>';
+            html += '<div class="bg-green-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">10 K</div><div class="text-3xl font-bold">' + formatTime(times.t10) + '</div><div class="mt-2">Ritmo: ' + formatPace(times.t10/10) + '/km</div></div>';
+            html += '<div class="bg-blue-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">Media maratón</div><div class="text-3xl font-bold">' + formatTime(times.t21) + '</div><div class="mt-2">Ritmo: ' + formatPace(times.t21/21.097) + '/km</div></div>';
+            html += '<div class="bg-purple-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">Maratón</div><div class="text-3xl font-bold">' + formatTime(times.t42) + '</div><div class="mt-2">Ritmo: ' + formatPace(times.t42/42.195) + '/km</div></div>';
             html += '</div>';
             document.getElementById('zeitResult').innerHTML = html;
         }
