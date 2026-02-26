@@ -449,15 +449,15 @@
             var html = '<div class="space-y-4"><h3 class="text-xl font-bold mb-4">Tu plan personal:</h3>';
             
             if (currentPlan === '10k') {
-                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Martes</div><div class="text-xl font-bold">Carrera exigente</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minutos</div></div>';
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Martes</div><div class="text-xl font-bold">Carrera intensiva</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minutos</div></div>';
                 html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Jueves</div><div class="text-xl font-bold">Carrera suave</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">40-60 Minutos</div></div>';
-                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sábado</div><div class="text-xl font-bold">Carrera intensiva</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sábado</div><div class="text-xl font-bold">Ritmo competiciónCarrera intensiva</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
                 html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Domingo</div><div class="text-xl font-bold">Carrera larga</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">80-90 Minutos</div></div>';
             } else {
-                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Martes</div><div class="text-xl font-bold">Carrera exigente</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">50-60 Minutos</div></div>';
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Martes</div><div class="text-xl font-bold">Carrera intensiva</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">50-60 Minutos</div></div>';
                 html += '<div class="bg-yellow-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Miércoles</div><div class="text-xl font-bold">Carrera suave</div><div class="text-lg mt-2">~' + z2 + ' ppm (77%)</div><div class="mt-1">90-100 Minutos</div></div>';
                 html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Jueves</div><div class="text-xl font-bold">Carrera suave</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">45-60 Minutos</div></div>';
-                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sábado</div><div class="text-xl font-bold">Carrera intensiva</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sábado</div><div class="text-xl font-bold">Ritmo competición</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
                 html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Domingo</div><div class="text-xl font-bold">Carrera larga</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">120-170 Minutos</div></div>';
             }
             
@@ -474,6 +474,23 @@
         document.getElementById('tSek10k').addEventListener('input', calcTempos);
         document.getElementById('tHMarathon').addEventListener('input', calcTempos);
         document.getElementById('tMinMarathon').addEventListener('input', calcTempos);
+    </script>
+	<!-- AÑADE ESTO JUSTO AQUÍ -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado:', registration);
+                        
+                        // Buscar actualizaciones cada vez que se abre la app
+                        registration.update();
+                    })
+                    .catch(error => {
+                        console.log('Error al registrar Service Worker:', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
