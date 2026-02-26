@@ -54,7 +54,7 @@
         <!-- Zeiten Content -->
         <div id="content-zeiten" class="hidden">
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <h2 class="text-2xl font-bold mb-6">pronostico marcas</h2>
+                <h2 class="text-2xl font-bold mb-6">Pronóstico marcas</h2>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <h3 class="font-bold mb-4">Tu marca 10K</h3>
@@ -62,7 +62,7 @@
                         <input type="number" id="sek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                     <div>
-                        <h3 class="font-bold mb-4">O marca maratón</h3>
+                        <h3 class="font-bold mb-4">O Marca maratón</h3>
                         <input type="number" id="hMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
                         <input type="number" id="minMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
@@ -74,7 +74,7 @@
         <!-- Tempos Content -->
         <div id="content-tempos" class="hidden">
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <h2 class="text-2xl font-bold mb-6">ritmos de entrenamientos</h2>
+                <h2 class="text-2xl font-bold mb-6">Ritmos de entrenamientos</h2>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <h3 class="font-bold mb-4">Tu marca 10K</h3>
@@ -82,7 +82,7 @@
                         <input type="number" id="tSek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                     <div>
-                        <h3 class="font-bold mb-4">O tu marca maratón</h3>
+                        <h3 class="font-bold mb-4">O Tu marca de maratón</h3>
                         <input type="number" id="tHMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
                         <input type="number" id="tMinMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
@@ -96,152 +96,175 @@
         </div>
 
 <!-- Empfehlungen Content -->
-     <div id="content-empfehlungen" class="hidden">
-     <div class="bg-white rounded-2xl shadow-xl p-8">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">
-            Pensamientos y reconmedaciones
-        </h2>
-        <p class="text-center text-lg text-indigo-600 font-semibold mb-8">
-            Von Manolo "El Campanero"
-        </p>
-
-        <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-xl mb-8 border-l-4 border-indigo-500">
-            <p class="text-gray-700 leading-relaxed italic">
-                Einen Marathon zu laufen bedeutet nicht nur 42,195 Kilometer zurückzulegen: Es ist ein physiologischer, mentaler und emotionaler Transformationsprozess, der bei jedem, der ihn erlebt, tiefe Spuren hinterlässt. In über 45 Jahren Laufsport, mit 28 absolvierten Marathons und einer persönlichen Bestzeit unter 2h19', habe ich gelernt, dass der Erfolg auf dieser Distanz aus der exakten Kombination von Wissenschaft, Beständigkeit und Leidenschaft entsteht.
+     <div className="bg-white rounded-2xl shadow-xl p-8">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+              Reflexiones y recomendaciones para preparar un maratón
+            </h2>
+            <p className="text-center text-lg text-indigo-600 font-semibold mb-8">
+              Por Manolo "El Campanero"
             </p>
-        </div>
 
-        <div class="space-y-6 max-h-[600px] overflow-y-auto pr-4">
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">1. Die Entscheidung: Warum ein Marathon?</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Der Marathon ist im Trend, aber er ist keine Mode. Es ist eine ernsthafte Entscheidung, die sportliche Reife erfordert. Bevor man ihn in Angriff nimmt, ist es ratsam, mindestens zwei Jahre regelmäßig zu laufen und an 10-km- und Halbmarathon-Wettkämpfen teilgenommen zu haben. Die Vorbereitung auf einen Marathon bedeutet, dein Leben neu zu organisieren: Zeitpläne, Erholung, Ernährung und Prioritäten.
-                </p>
+            <div className="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-xl mb-8 border-l-4 border-indigo-500">
+              <p className="text-gray-700 leading-relaxed italic">
+                Correr un maratón no es solo cubrir 42.195 metros: es un proceso de transformación fisiológica, mental y emocional que deja una huella profunda en quien lo vive. A lo largo de más de 45 años corriendo, con 28 maratones completados y una marca personal por debajo de 2h19', he aprendido que el éxito en esta distancia nace de la combinación exacta entre ciencia, constancia y pasión. Estas líneas recogen reflexiones técnicas y emocionales para ayudarte a preparar tu maratón con cabeza, corazón y respeto por la distancia.
+              </p>
             </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">2. Gesundheit: Die Basis der Leistung</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Bevor du mit der Vorbereitung beginnst, führe eine vollständige ärztliche Untersuchung durch. Ein Elektrokardiogramm, ein Belastungstest und ein Basisblutbild sind unverzichtbare Werkzeuge für ein sicheres Training. Gesundheit ist nicht verhandelbar: Ohne sie gibt es keine Leistung, keinen Genuss und keinen Marathon.
+            <div className="space-y-6 max-h-[600px] overflow-y-auto pr-4">
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">1. La decisión: ¿por qué un maratón?</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  El maratón está de moda, pero no es una moda. Es una elección seria que exige madurez deportiva. Antes de afrontarlo, es recomendable llevar al menos dos años corriendo de forma regular y haber competido en 10 km y media maratón. Preparar un maratón implica reorganizar tu vida: horarios, descanso, alimentación y prioridades. No es una renuncia, es una inversión emocional en un sueño que te hará crecer como corredor y como persona.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">3. Planung: Wochen und Struktur</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    8 bis 11 Wochen spezifisches Training sind normalerweise ausreichend, wenn eine gute Grundlage vorhanden ist. Der Schlüssel liegt in der Progression: Umfang und Intensität kontrolliert steigern und dabei die Prinzipien von Belastung, Erholung und Anpassung beachten.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">2. Salud: la base del rendimiento</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Antes de iniciar la preparación, realiza un chequeo médico completo. Un electrocardiograma, una prueba de esfuerzo y una analítica básica son herramientas imprescindibles para entrenar con seguridad. La salud no es negociable: sin ella no hay rendimiento, ni disfrute, ni maratón.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">4. Trainingsumgebung: Ort und Gesellschaft</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Trainiere auf bekannten Strecken in der Nähe deines Zuhauses, die die Logistik und Kontrolle des Trainings erleichtern. Trainiere wann immer möglich in Begleitung: Die Gruppe gibt an schwierigen Tagen Halt und vervielfacht die Motivation. Der Marathon wird allein gelaufen, aber besser im Team vorbereitet.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">3. Planificación: semanas y estructura</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Entre 8 y 11 semanas de preparación específica suelen ser suficientes si existe una buena base previa. La clave está en la progresión: aumentar volumen e intensidad de forma controlada, respetando los principios de sobrecarga, recuperación y adaptación.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">5. Realistisches Ziel: Viel mehr als nur eine Zeit</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Beim ersten Marathon ist das Hauptziel, stark und unversehrt ins Ziel zu kommen. Die Zeit wird als Folge guter Arbeit kommen. Die Ziellinie zum ersten Mal zu überqueren ist eine schwer zu beschreibende emotionale Erfahrung: Tränen, Stolz, innere Stille und die tiefe Gewissheit, alles gegeben zu haben.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">4. Entorno de entrenamiento: espacio y compañía</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Entrena en recorridos conocidos, cercanos a casa, que faciliten la logística y el control del entrenamiento. Siempre que sea posible, entrena acompañado: el grupo sostiene en los días difíciles y multiplica la motivación. El maratón se corre solo, pero se prepara mejor en equipo.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">6. Trainingsmethodik</h3>
-                <p class="text-gray-700 leading-relaxed mb-3">Kombiniere drei grundlegende Säulen:</p>
-                <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                    <li>Aerobes Volumen (lockere und lange Läufe) zum Aufbau der physiologischen Basis.</li>
-                    <li>Marathontempo zur Optimierung der Laufökonomie und Toleranz der spezifischen Belastung.</li>
-                    <li>Qualitätsarbeit (Tempowechsel, intensive Läufe, Steigerungen, Berge) zur Verbesserung der VO₂max und der aeroben Schwelle.</li>
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">5. Objetivo realista: mucho más que una marca</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  En el primer maratón, el objetivo principal es llegar fuerte y entero a la meta. La marca llegará como consecuencia del trabajo bien hecho. Cruzar la línea de llegada por primera vez es una experiencia emocional difícil de describir: lágrimas, orgullo, silencio interior y una certeza profunda de haberlo dado todo.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">6. Metodología de entrenamiento</h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  Combina tres pilares fundamentales:
+                </p>
+                <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                  <li>Volumen aeróbico (carreras suaves y largas) para desarrollar la base fisiológica.</li>
+                  <li>Ritmo de maratón para optimizar la economía de carrera y la tolerancia al esfuerzo específico.</li>
+                  <li>Trabajo de calidad (cambios de ritmo, carrera intensiva, progresivos, cuestas) para mejorar el VO₂máx y el umbral aeróbico.</li>
                 </ul>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">7. Tempos und Wochenumfang</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Der Hobbyläufer sollte zwischen 60 und 70 km pro Woche laufen, angepasst an sein Niveau. Die Tempos sollten überwiegend aerob sein (Zone 2–3), wo die echte Ausdauer aufgebaut wird. Langsam zu trainieren ist keine Zeitverschwendung: Es ist eine Investition in die Zukunft.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">7. Ritmos y carga semanal</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  El corredor popular debería moverse entre 60 y 70 km semanales, adaptándolo a su nivel. Los ritmos deben ser mayoritariamente aeróbicos (zona 2–3), donde se construye la resistencia real. Entrenar despacio no es perder el tiempo: es ganar futuro.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">8. Intensitätskontrolle: Pulsmesser und Empfindungen</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Deine maximale Herzfrequenz und aerobe Schwelle zu kennen, ermöglicht präzises Training. Technologie ist nützlich, aber vergiss nicht, auf deinen Körper zu hören: Müdigkeit, Erholung und Emotionen sind ebenfalls Daten.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">8. Control de la intensidad: pulsómetro y sensaciones</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Conocer tus pulsaciones máximas y tu umbral aeróbico te permitirá entrenar con precisión. La tecnología es útil, pero no olvides escuchar tu cuerpo: la fatiga, el descanso y las emociones también son datos.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">9. Der lange Lauf: Das Marathon-Labor</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Der lange Lauf ist das wichtigste Training. Führe ihn sonntagmorgens durch und simuliere dabei den Wettkampf. Hier werden Stoffwechsel, Geist und Geduld trainiert.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">9. La tirada larga: el laboratorio del maratón</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  La carrera larga es el entrenamiento más importante. Realízala el domingo por la mañana, simulando la competición. Es aquí donde se entrena el metabolismo, la mente y la paciencia.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">10. Zeit besser als Kilometer</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Für die meisten Läufer ist das Training nach Zeit effektiver: 2h15'–3h00' kontinuierliches Laufen entwickelt die Anpassungen besser als eine starre Kilometerzahl.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">10. Tiempo mejor que kilómetros</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Para la mayoría de corredores, entrenar por tiempo es más efectivo: 2h15'–3h00' de carrera continua desarrollan mejor las adaptaciones que una cifra rígida de kilómetros.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">11. Metabolische Anpassung: Nüchterntraining</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Den langen Lauf nüchtern zu laufen, bei 70–72% der maximalen HF, verbessert die Fettverbrennung und spart Glykogen. Dieser Prozess ist entscheidend, um die gefürchtete "Mauer bei km 30" zu vermeiden.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">11. Adaptación metabólica: entrenar en ayunas</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Correr la tirada larga en ayunas, a un 70–72% de la FC máxima, mejora la capacidad de utilizar grasas y ahorra glucógeno. Este proceso es clave para evitar el temido "muro del km 30". Es un entrenamiento fisiológico… y también un ejercicio de confianza.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">12. Erholung: Wiederaufbau zum erneuten Wachstum</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Nichts passt sich ohne Erholung an. Nach dem langen Lauf fülle Kohlenhydrate und hochwertige Proteine auf: Hafer, reifes Obst, gekochte Kartoffeln, Vollkornreis. Jede Mahlzeit ist eine Gelegenheit, deinen Körper und deine Begeisterung wieder aufzubauen.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">12. Recuperación: reconstruir para volver a crecer</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Nada se adapta sin recuperación. Tras la tirada larga, repón hidratos de carbono y proteínas de calidad: avena, fruta madura, patata cocida, arroz integral. Cada comida es una oportunidad para reconstruir tu cuerpo y tu ilusión.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">13. Bewusste Ernährung</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Eine Ernährung auf Basis echter Lebensmittel — Gemüse, Obst, Hülsenfrüchte, Vollkorngetreide und native Öle — ist die beste natürliche ergogene Hilfe. Reduziere industriellen Zucker: weniger Glukosespitzen, mehr energetische und emotionale Stabilität.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">13. Alimentación consciente</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Una dieta basada en alimentos reales —verduras, frutas, legumbres, cereales integrales y aceites vírgenes— es la mejor ayuda ergogénica natural. Reduce el azúcar industrial: menos picos de glucosa, más estabilidad energética y emocional.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">14. Wettkampftempo: Vertrauen trainieren</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Trainiere einmal pro Woche das Marathontempo. Beginne mit 5 km und steigere dich auf 12–15 km. Du trainierst nicht nur den Körper: Du trainierst die Sicherheit zu wissen, dass du dieses Tempo halten kannst.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">14. Frecuencia de comidas y eficiencia metabólica</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Comer 2–3 veces al día favorece la flexibilidad metabólica, mejora la utilización de grasas y optimiza la digestión. Un sistema digestivo descansado deja más energía disponible para entrenar y recuperarse.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">15. Schuhe: Vertrauen unter den Füßen</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Die Schuhe sollten eine Erweiterung deines Körpers sein. Sie werden niemals am Marathontag das erste Mal getragen. Verwende sie während der gesamten Vorbereitung im Wettkampftempo-Training: Auch Vertrauen wird trainiert.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">15. Ritmo de competición: entrenar la confianza</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Una vez por semana, trabaja el ritmo de maratón. Empieza con 5 km y progresa hasta 12–15 km. No solo entrenas el cuerpo: entrenas la seguridad de saber que puedes sostener ese ritmo cuando más lo necesitas.
                 </p>
-            </div>
+              </div>
 
-            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-                <h3 class="text-xl font-bold text-indigo-700 mb-3">16. Der Marathontag: Wissenschaft und Emotion</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    Frühstücke das Erprobte: Kamillentee mit Honig, Weißbrot mit Butter und Honig und eine reife Banane, drei Stunden vorher. Ein lockerer Trab, progressives Aufwärmen und ruhiges Atmen. Und dann, an der Startlinie, wirst du verstehen, dass sich alles gelohnt hat.
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">16. Competiciones como test fisiológico y emocional</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Correr 10–15 km a ritmo de maratón o una media maratón a 4 semanas de la prueba es un excelente test. Sirve para validar la forma física, ensayar material y confirmar que el sueño es posible.
                 </p>
-            </div>
-        </div>
+              </div>
 
-        <div class="mt-8 bg-gradient-to-r from-amber-50 to-yellow-50 p-8 rounded-xl border-2 border-amber-300">
-            <h3 class="text-2xl font-bold text-amber-900 mb-4 text-center">Epilog</h3>
-            <p class="text-gray-700 leading-relaxed text-center">
-                Diese Überlegungen entstammen einem dem Leichtathletik gewidmeten Leben und dem Glück, Erfahrungen mit großartigen Athleten wie Waldemar Cierpinski, Andrés Espinosa oder Julio Rey geteilt zu haben. Von ihnen lernte ich, dass der Marathon ein physiologisches und emotionales Kunstwerk ist: Präzision, Bescheidenheit und Leidenschaft.
-            </p>
-            <p class="text-gray-700 leading-relaxed text-center mt-4 font-semibold">
-                Wenn dieser Text dich bei deiner Vorbereitung begleitet, ist das Ziel bereits erreicht.
-            </p>
-            <p class="text-center text-xl font-bold text-indigo-700 mt-6">
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">17. Método alternativo: simplicidad eficaz</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Entrenar 2–3 veces por semana durante 70–80 minutos a 20–25 segundos más lento que el ritmo de maratón desarrolla una resistencia sólida y profunda. Es duro, silencioso y tremendamente efectivo.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">18. Zapatillas: confianza bajo los pies</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Las zapatillas deben ser una extensión de tu cuerpo. Nunca se estrenan el día del maratón. Úsalas durante toda la preparación en los entrenamientos a ritmo de competición: la confianza también se entrena.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-700 mb-3">19. El día del maratón: ciencia y emoción</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Desayuna lo probado: infusión de manzanilla con miel, pan blanco con mantequilla y miel y un plátano maduro, tres horas antes. Un trote suave, un calentamiento progresivo y una respiración tranquila.
+                  Y entonces, en la línea de salida, comprenderás que todo ha valido la pena. Cada kilómetro entrenado, cada duda superada, cada madrugón. El maratón no se corre solo con las piernas: se corre con la cabeza… y con el corazón.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-gradient-to-r from-amber-50 to-yellow-50 p-8 rounded-xl border-2 border-amber-300">
+              <h3 className="text-2xl font-bold text-amber-900 mb-4 text-center">Epílogo</h3>
+              <p className="text-gray-700 leading-relaxed text-center">
+                Estas reflexiones nacen de una vida dedicada al atletismo y de la fortuna de haber compartido experiencias con grandes atletas como Waldemar Cierpinski, Andrés Espinosa o Julio Rey. De ellos aprendí que el maratón es una obra de arte fisiológica y emocional: precisión, humildad y pasión.
+              </p>
+              <p className="text-gray-700 leading-relaxed text-center mt-4 font-semibold">
+                Si este texto te acompaña en tu preparación, el objetivo ya está cumplido.
+              </p>
+              <p className="text-center text-xl font-bold text-indigo-700 mt-6">
                 Manolo "El Campanero"
-            </p>
-        </div>
-    </div>
-</div>
+              </p>
+            </div>
+          </div>
+        )}
  <!-- Plan Content -->
 		<div id="content-plan" class="hidden">
             <div class="bg-white rounded-2xl shadow-xl p-8">
