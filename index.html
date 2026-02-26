@@ -29,7 +29,7 @@
         <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tiempos</button>
         <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Ritmos</button>
         <button onclick="changeTab('plan')" id="tab-plan" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Plan de entrenamiento</button>
-        <button onclick="changeTab('empfehlungen')" id="tab-empfehlungen" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Recomendaciones</button>
+        <button onclick="changeTab('Recomendaciones')" id="tab-recomendaciones" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Recomendaciones</button>
     </div>
 </div>
 
@@ -95,7 +95,8 @@
             </div>
         </div>
 
-<!-- Empfehlungen Content -->
+
+<!-- Recomendaciones Content -->
      <div className="bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
               Reflexiones y recomendaciones para preparar un maratón
@@ -293,14 +294,14 @@
     document.getElementById('content-zeiten').className = 'hidden';
     document.getElementById('content-tempos').className = 'hidden';
     document.getElementById('content-plan').className = 'hidden';
-    document.getElementById('content-empfehlungen').className = 'hidden';
+    document.getElementById('content-recomendaciones').className = 'hidden';
     document.getElementById('content-' + tab).className = '';
     
     document.getElementById('tab-hf').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
     document.getElementById('tab-zeiten').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
     document.getElementById('tab-tempos').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
     document.getElementById('tab-plan').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
-    document.getElementById('tab-empfehlungen').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+    document.getElementById('tab-recomendaciones').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
     document.getElementById('tab-' + tab).className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active';
     
     if (tab === 'plan') updatePlan();
