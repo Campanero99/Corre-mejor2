@@ -425,18 +425,18 @@
             }
             
             var html = '<div class="space-y-4">';
-            html += '<div class="bg-green-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Lockerer Lauf (Aerobe Basis)</div><div class="text-2xl font-bold">' + formatPace(pM+60) + ' - ' + formatPace(pM+75) + ' /km</div></div>';
-            html += '<div class="bg-orange-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Renntempo</div><div class="text-2xl font-bold">' + formatPace(currentZiel==='10k'?p10:pM) + ' /km</div></div>';
+            html += '<div class="bg-green-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera suave (base aeróbica)</div><div class="text-2xl font-bold">' + formatPace(pM+60) + ' - ' + formatPace(pM+75) + ' /km</div></div>';
+            html += '<div class="bg-orange-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Ritmo competición</div><div class="text-2xl font-bold">' + formatPace(currentZiel==='10k'?p10:pM) + ' /km</div></div>';
             var intMin = (currentZiel==='10k'?p10:pM)+15;
             var intMax = (currentZiel==='10k'?p10:pM)+25;
-            html += '<div class="bg-red-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Intensiver Lauf</div><div class="text-2xl font-bold">' + formatPace(intMin) + ' - ' + formatPace(intMax) + ' /km</div></div>';
+            html += '<div class="bg-red-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera intensiva</div><div class="text-2xl font-bold">' + formatPace(intMin) + ' - ' + formatPace(intMax) + ' /km</div></div>';
             html += '</div>';
             document.getElementById('tempoResult').innerHTML = html;
         }
 
         function updatePlan() {
             if (!savedHF) {
-                document.getElementById('planResult').innerHTML = '<div class="bg-yellow-100 p-4 rounded-xl border-2 border-yellow-400"><p class="font-semibold">⚠️ Bitte zuerst HF-Max in der ersten Reiter eingeben</p></div>';
+                document.getElementById('planResult').innerHTML = '<div class="bg-yellow-100 p-4 rounded-xl border-2 border-yellow-400"><p class="font-semibold">⚠️ Introduce tu frecuencia/p></div>';
                 return;
             }
             
@@ -446,19 +446,19 @@
             var z3 = Math.round(hf * 0.82) + '-' + Math.round(hf * 0.84);
             var z4 = Math.round(hf * 0.88) + '-' + Math.round(hf * 0.92);
             
-            var html = '<div class="space-y-4"><h3 class="text-xl font-bold mb-4">Dein personalisierter Plan:</h3>';
+            var html = '<div class="space-y-4"><h3 class="text-xl font-bold mb-4">Tu plan personal:</h3>';
             
             if (currentPlan === '10k') {
-                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minuten</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">40-60 Minuten</div></div>';
-                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minuten</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">80-90 Minuten</div></div>';
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Martes</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minutos</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Jueves</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">40-60 Minutos</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sábado</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Domingo</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">80-90 Minutos</div></div>';
             } else {
-                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">50-60 Minuten</div></div>';
-                html += '<div class="bg-yellow-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Mittwoch</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">~' + z2 + ' ppm (77%)</div><div class="mt-1">90-100 Minuten</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">45-60 Minuten</div></div>';
-                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minuten</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">120-170 Minuten</div></div>';
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Martes</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">50-60 Minutos</div></div>';
+                html += '<div class="bg-yellow-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Miércoles</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">~' + z2 + ' ppm (77%)</div><div class="mt-1">90-100 Minutos</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Jueves</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">45-60 Minutos</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sábado</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Domingo</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">120-170 Minutos</div></div>';
             }
             
             html += '</div>';
