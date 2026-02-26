@@ -261,24 +261,22 @@
               </p>
               <p className="text-center text-xl font-bold text-indigo-700 mt-6">
                 Manolo "El Campanero"
-				 </p>
+		     </p>
         </div>
     </div>
 </div>
- 
- 
  <!-- Plan Content -->
 		<div id="content-plan" class="hidden">
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <h2 class="text-2xl font-bold mb-6">Plan/semanal</h2>
+                <h2 class="text-2xl font-bold mb-6">Trainingsplan/Woche</h2>
                 <div class="grid md:grid-cols-2 gap-4 mb-6">
                     <button onclick="setPlan('10k')" id="plan10k" class="p-6 bg-indigo-600 text-white rounded-xl">
-                        <div class="text-xl font-bold">10K / Media maratón</div>
-                        <div class="text-sm">4 días por semana</div>
+                        <div class="text-xl font-bold">10K / Halbmarathon</div>
+                        <div class="text-sm">4 Tage pro Woche</div>
                     </button>
                     <button onclick="setPlan('marathon')" id="planMarathon" class="p-6 bg-gray-200 rounded-xl">
-                        <div class="text-xl font-bold">Maratón</div>
-                        <div class="text-sm">5 días por semana</div>
+                        <div class="text-xl font-bold">Marathon</div>
+                        <div class="text-sm">5 Tage pro Woche</div>
                     </button>
                 </div>
                 <div id="planResult"></div>
@@ -295,14 +293,14 @@
     document.getElementById('content-zeiten').className = 'hidden';
     document.getElementById('content-tempos').className = 'hidden';
     document.getElementById('content-plan').className = 'hidden';
-    document.getElementById('content-recomendaciones').className = 'hidden';
+    document.getElementById('content-empfehlungen').className = 'hidden';
     document.getElementById('content-' + tab).className = '';
     
     document.getElementById('tab-hf').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
     document.getElementById('tab-zeiten').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
     document.getElementById('tab-tempos').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
     document.getElementById('tab-plan').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
-    document.getElementById('tab-recomendaciones').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+    document.getElementById('tab-empfehlungen').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
     document.getElementById('tab-' + tab).className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active';
     
     if (tab === 'plan') updatePlan();
@@ -342,11 +340,11 @@
             
             var html = '<div class="space-y-3">';
             html += '<div class="bg-green-100 p-4 rounded-xl"><div class="font-bold">Erholung (&lt;67%)</div><div class="text-2xl">&lt; ' + Math.round(hf*0.67) + ' Bpm</div></div>';
-            html += '<div class="bg-blue-100 p-4 rounded-xl"><div class="font-bold">Zona 1 (68-72%)</div><div class="text-2xl">' + Math.round(hf*0.68) + '-' + Math.round(hf*0.72) + ' Bpm</div></div>';
-            html += '<div class="bg-cyan-100 p-4 rounded-xl"><div class="font-bold">Zona 2 (77-79%)</div><div class="text-2xl">' + Math.round(hf*0.77) + '-' + Math.round(hf*0.79) + ' Bpm</div></div>';
+            html += '<div class="bg-blue-100 p-4 rounded-xl"><div class="font-bold">Zone 1 (68-72%)</div><div class="text-2xl">' + Math.round(hf*0.68) + '-' + Math.round(hf*0.72) + ' Bpm</div></div>';
+            html += '<div class="bg-cyan-100 p-4 rounded-xl"><div class="font-bold">Zone 2 (77-79%)</div><div class="text-2xl">' + Math.round(hf*0.77) + '-' + Math.round(hf*0.79) + ' Bpm</div></div>';
             html += '<div class="bg-orange-100 p-4 rounded-xl"><div class="font-bold">Zone 3 (80-84%)</div><div class="text-2xl">' + Math.round(hf*0.80) + '-' + Math.round(hf*0.84) + ' Bpm</div></div>';
-            html += '<div class="bg-red-100 p-4 rounded-xl"><div class="font-bold">Zona 4 (85-88%)</div><div class="text-2xl">' + Math.round(hf*0.85) + '-' + Math.round(hf*0.88) + ' Bpm</div></div>';
-            html += '<div class="bg-purple-100 p-4 rounded-xl"><div class="font-bold">Competición (89-92%)</div><div class="text-2xl">' + Math.round(hf*0.89) + '-' + Math.round(hf*0.92) + ' Bpm</div></div>';
+            html += '<div class="bg-red-100 p-4 rounded-xl"><div class="font-bold">Zone 4 (85-88%)</div><div class="text-2xl">' + Math.round(hf*0.85) + '-' + Math.round(hf*0.88) + ' Bpm</div></div>';
+            html += '<div class="bg-purple-100 p-4 rounded-xl"><div class="font-bold">Wettkampf (89-92%)</div><div class="text-2xl">' + Math.round(hf*0.89) + '-' + Math.round(hf*0.92) + ' Bpm</div></div>';
             html += '</div>';
             document.getElementById('hfResult').innerHTML = html;
         }
@@ -450,16 +448,16 @@
             var html = '<div class="space-y-4"><h3 class="text-xl font-bold mb-4">Dein personalisierter Plan:</h3>';
             
             if (currentPlan === '10k') {
-                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minutos</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">40-60 Minutos</div></div>';
-                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">80-90 Minutos</div></div>';
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">40-60 Minuten</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">80-90 Minuten</div></div>';
             } else {
-                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">50-60 Minutos</div></div>';
-                html += '<div class="bg-yellow-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Mittwoch</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">~' + z2 + ' ppm (77%)</div><div class="mt-1">90-100 Minutos</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">45-60 Minutos</div></div>';
-                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">120-170 Minutos</div></div>';
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">50-60 Minuten</div></div>';
+                html += '<div class="bg-yellow-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Mittwoch</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">~' + z2 + ' ppm (77%)</div><div class="mt-1">90-100 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">45-60 Minuten</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">120-170 Minuten</div></div>';
             }
             
             html += '</div>';
