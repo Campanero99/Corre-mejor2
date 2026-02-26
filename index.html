@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Besser Laufen</title>
+	<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="180x180" href="icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+<meta name="theme-color" content="#4F46E5">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-active { background: rgb(79 70 229); color: white; }
+        .tab-inactive { background: rgb(243 244 246); color: rgb(75 85 99); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-6">
+            <h1 class="text-4xl font-bold text-gray-800 text-center">Besser Laufen</h1>
+            <p class="text-center text-gray-600 text-lg">Professionelles Lauftraining</p>
+        </div>
+
+      <!-- Tabs -->
+<div class="bg-white rounded-2xl shadow-xl mb-6 p-2">
+    <div class="flex gap-2 flex-wrap">
+        <button onclick="changeTab('hf')" id="tab-hf" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active">HF</button>
+        <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Zeiten</button>
+        <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tempos</button>
+        <button onclick="changeTab('plan')" id="tab-plan" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Plan</button>
+        <button onclick="changeTab('empfehlungen')" id="tab-empfehlungen" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tipps</button>
+    </div>
+</div>
+
+        <!-- HF Content -->
+        <div id="content-hf">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6">HF-Zonen Rechner</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Maximale HF</label>
+                        <input type="number" id="hfMax" placeholder="z.B. 185" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Alter (optional)</label>
+                        <input type="number" id="alter" placeholder="z.B. 35" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                </div>
+                <div id="hfResult"></div>
+            </div>
+        </div>
+
+        <!-- Zeiten Content -->
+        <div id="content-zeiten" class="hidden">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6">Zeitenprognose</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="font-bold mb-4">Deine 10K Zeit</h3>
+                        <input type="number" id="min10k" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="sek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4">Oder Marathon Zeit</h3>
+                        <input type="number" id="hMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="minMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                </div>
+                <div id="zeitResult"></div>
+            </div>
+        </div>
+
+        <!-- Tempos Content -->
+        <div id="content-tempos" class="hidden">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6">Trainingstempos</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="font-bold mb-4">Deine 10K Zeit</h3>
+                        <input type="number" id="tMin10k" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="tSek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4">Oder Marathon Zeit</h3>
+                        <input type="number" id="tHMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="tMinMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <button onclick="setZiel('10k')" id="ziel10k" class="px-6 py-3 bg-indigo-600 text-white rounded-xl mr-2">10K</button>
+                    <button onclick="setZiel('marathon')" id="zielMarathon" class="px-6 py-3 bg-gray-200 rounded-xl">Marathon</button>
+                </div>
+                <div id="tempoResult"></div>
+            </div>
+        </div>
+
+<!-- Empfehlungen Content -->
+     <div id="content-empfehlungen" class="hidden">
+     <div class="bg-white rounded-2xl shadow-xl p-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">
+            Überlegungen und Empfehlungen zur Marathon-Vorbereitung
+        </h2>
+        <p class="text-center text-lg text-indigo-600 font-semibold mb-8">
+            Von Manolo "El Campanero"
+        </p>
+
+        <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-xl mb-8 border-l-4 border-indigo-500">
+            <p class="text-gray-700 leading-relaxed italic">
+                Einen Marathon zu laufen bedeutet nicht nur 42,195 Kilometer zurückzulegen: Es ist ein physiologischer, mentaler und emotionaler Transformationsprozess, der bei jedem, der ihn erlebt, tiefe Spuren hinterlässt. In über 45 Jahren Laufsport, mit 28 absolvierten Marathons und einer persönlichen Bestzeit unter 2h19', habe ich gelernt, dass der Erfolg auf dieser Distanz aus der exakten Kombination von Wissenschaft, Beständigkeit und Leidenschaft entsteht.
+            </p>
+        </div>
+
+        <div class="space-y-6 max-h-[600px] overflow-y-auto pr-4">
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">1. Die Entscheidung: Warum ein Marathon?</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Der Marathon ist im Trend, aber er ist keine Mode. Es ist eine ernsthafte Entscheidung, die sportliche Reife erfordert. Bevor man ihn in Angriff nimmt, ist es ratsam, mindestens zwei Jahre regelmäßig zu laufen und an 10-km- und Halbmarathon-Wettkämpfen teilgenommen zu haben. Die Vorbereitung auf einen Marathon bedeutet, dein Leben neu zu organisieren: Zeitpläne, Erholung, Ernährung und Prioritäten.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">2. Gesundheit: Die Basis der Leistung</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Bevor du mit der Vorbereitung beginnst, führe eine vollständige ärztliche Untersuchung durch. Ein Elektrokardiogramm, ein Belastungstest und ein Basisblutbild sind unverzichtbare Werkzeuge für ein sicheres Training. Gesundheit ist nicht verhandelbar: Ohne sie gibt es keine Leistung, keinen Genuss und keinen Marathon.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">3. Planung: Wochen und Struktur</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    8 bis 11 Wochen spezifisches Training sind normalerweise ausreichend, wenn eine gute Grundlage vorhanden ist. Der Schlüssel liegt in der Progression: Umfang und Intensität kontrolliert steigern und dabei die Prinzipien von Belastung, Erholung und Anpassung beachten.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">4. Trainingsumgebung: Ort und Gesellschaft</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Trainiere auf bekannten Strecken in der Nähe deines Zuhauses, die die Logistik und Kontrolle des Trainings erleichtern. Trainiere wann immer möglich in Begleitung: Die Gruppe gibt an schwierigen Tagen Halt und vervielfacht die Motivation. Der Marathon wird allein gelaufen, aber besser im Team vorbereitet.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">5. Realistisches Ziel: Viel mehr als nur eine Zeit</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Beim ersten Marathon ist das Hauptziel, stark und unversehrt ins Ziel zu kommen. Die Zeit wird als Folge guter Arbeit kommen. Die Ziellinie zum ersten Mal zu überqueren ist eine schwer zu beschreibende emotionale Erfahrung: Tränen, Stolz, innere Stille und die tiefe Gewissheit, alles gegeben zu haben.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">6. Trainingsmethodik</h3>
+                <p class="text-gray-700 leading-relaxed mb-3">Kombiniere drei grundlegende Säulen:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                    <li>Aerobes Volumen (lockere und lange Läufe) zum Aufbau der physiologischen Basis.</li>
+                    <li>Marathontempo zur Optimierung der Laufökonomie und Toleranz der spezifischen Belastung.</li>
+                    <li>Qualitätsarbeit (Tempowechsel, intensive Läufe, Steigerungen, Berge) zur Verbesserung der VO₂max und der aeroben Schwelle.</li>
+                </ul>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">7. Tempos und Wochenumfang</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Der Hobbyläufer sollte zwischen 60 und 70 km pro Woche laufen, angepasst an sein Niveau. Die Tempos sollten überwiegend aerob sein (Zone 2–3), wo die echte Ausdauer aufgebaut wird. Langsam zu trainieren ist keine Zeitverschwendung: Es ist eine Investition in die Zukunft.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">8. Intensitätskontrolle: Pulsmesser und Empfindungen</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Deine maximale Herzfrequenz und aerobe Schwelle zu kennen, ermöglicht präzises Training. Technologie ist nützlich, aber vergiss nicht, auf deinen Körper zu hören: Müdigkeit, Erholung und Emotionen sind ebenfalls Daten.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">9. Der lange Lauf: Das Marathon-Labor</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Der lange Lauf ist das wichtigste Training. Führe ihn sonntagmorgens durch und simuliere dabei den Wettkampf. Hier werden Stoffwechsel, Geist und Geduld trainiert.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">10. Zeit besser als Kilometer</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Für die meisten Läufer ist das Training nach Zeit effektiver: 2h15'–3h00' kontinuierliches Laufen entwickelt die Anpassungen besser als eine starre Kilometerzahl.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">11. Metabolische Anpassung: Nüchterntraining</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Den langen Lauf nüchtern zu laufen, bei 70–72% der maximalen HF, verbessert die Fettverbrennung und spart Glykogen. Dieser Prozess ist entscheidend, um die gefürchtete "Mauer bei km 30" zu vermeiden.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">12. Erholung: Wiederaufbau zum erneuten Wachstum</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Nichts passt sich ohne Erholung an. Nach dem langen Lauf fülle Kohlenhydrate und hochwertige Proteine auf: Hafer, reifes Obst, gekochte Kartoffeln, Vollkornreis. Jede Mahlzeit ist eine Gelegenheit, deinen Körper und deine Begeisterung wieder aufzubauen.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">13. Bewusste Ernährung</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Eine Ernährung auf Basis echter Lebensmittel — Gemüse, Obst, Hülsenfrüchte, Vollkorngetreide und native Öle — ist die beste natürliche ergogene Hilfe. Reduziere industriellen Zucker: weniger Glukosespitzen, mehr energetische und emotionale Stabilität.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">14. Wettkampftempo: Vertrauen trainieren</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Trainiere einmal pro Woche das Marathontempo. Beginne mit 5 km und steigere dich auf 12–15 km. Du trainierst nicht nur den Körper: Du trainierst die Sicherheit zu wissen, dass du dieses Tempo halten kannst.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">15. Schuhe: Vertrauen unter den Füßen</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Die Schuhe sollten eine Erweiterung deines Körpers sein. Sie werden niemals am Marathontag das erste Mal getragen. Verwende sie während der gesamten Vorbereitung im Wettkampftempo-Training: Auch Vertrauen wird trainiert.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">16. Der Marathontag: Wissenschaft und Emotion</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Frühstücke das Erprobte: Kamillentee mit Honig, Weißbrot mit Butter und Honig und eine reife Banane, drei Stunden vorher. Ein lockerer Trab, progressives Aufwärmen und ruhiges Atmen. Und dann, an der Startlinie, wirst du verstehen, dass sich alles gelohnt hat.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-gradient-to-r from-amber-50 to-yellow-50 p-8 rounded-xl border-2 border-amber-300">
+            <h3 class="text-2xl font-bold text-amber-900 mb-4 text-center">Epilog</h3>
+            <p class="text-gray-700 leading-relaxed text-center">
+                Diese Überlegungen entstammen einem dem Leichtathletik gewidmeten Leben und dem Glück, Erfahrungen mit großartigen Athleten wie Waldemar Cierpinski, Andrés Espinosa oder Julio Rey geteilt zu haben. Von ihnen lernte ich, dass der Marathon ein physiologisches und emotionales Kunstwerk ist: Präzision, Bescheidenheit und Leidenschaft.
+            </p>
+            <p class="text-gray-700 leading-relaxed text-center mt-4 font-semibold">
+                Wenn dieser Text dich bei deiner Vorbereitung begleitet, ist das Ziel bereits erreicht.
+            </p>
+            <p class="text-center text-xl font-bold text-indigo-700 mt-6">
+                Manolo "El Campanero"
+            </p>
+        </div>
+    </div>
+</div>
+ <!-- Plan Content -->
+		<div id="content-plan" class="hidden">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6">Trainingsplan/Woche</h2>
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <button onclick="setPlan('10k')" id="plan10k" class="p-6 bg-indigo-600 text-white rounded-xl">
+                        <div class="text-xl font-bold">10K / Halbmarathon</div>
+                        <div class="text-sm">4 Tage pro Woche</div>
+                    </button>
+                    <button onclick="setPlan('marathon')" id="planMarathon" class="p-6 bg-gray-200 rounded-xl">
+                        <div class="text-xl font-bold">Marathon</div>
+                        <div class="text-sm">5 Tage pro Woche</div>
+                    </button>
+                </div>
+                <div id="planResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var currentZiel = '10k';
+        var currentPlan = '10k';
+        var savedHF = null;
+  function changeTab(tab) {
+    document.getElementById('content-hf').className = 'hidden';
+    document.getElementById('content-zeiten').className = 'hidden';
+    document.getElementById('content-tempos').className = 'hidden';
+    document.getElementById('content-plan').className = 'hidden';
+    document.getElementById('content-empfehlungen').className = 'hidden';
+    document.getElementById('content-' + tab).className = '';
+    
+    document.getElementById('tab-hf').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+    document.getElementById('tab-zeiten').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+    document.getElementById('tab-tempos').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+    document.getElementById('tab-plan').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+    document.getElementById('tab-empfehlungen').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+    document.getElementById('tab-' + tab).className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active';
+    
+    if (tab === 'plan') updatePlan();
+}
+
+        function setZiel(z) {
+            currentZiel = z;
+            if (z === '10k') {
+                document.getElementById('ziel10k').className = 'px-6 py-3 bg-indigo-600 text-white rounded-xl mr-2';
+                document.getElementById('zielMarathon').className = 'px-6 py-3 bg-gray-200 rounded-xl';
+            } else {
+                document.getElementById('zielMarathon').className = 'px-6 py-3 bg-indigo-600 text-white rounded-xl';
+                document.getElementById('ziel10k').className = 'px-6 py-3 bg-gray-200 rounded-xl mr-2';
+            }
+            calcTempos();
+        }
+
+        function setPlan(p) {
+            currentPlan = p;
+            if (p === '10k') {
+                document.getElementById('plan10k').className = 'p-6 bg-indigo-600 text-white rounded-xl';
+                document.getElementById('planMarathon').className = 'p-6 bg-gray-200 rounded-xl';
+            } else {
+                document.getElementById('planMarathon').className = 'p-6 bg-indigo-600 text-white rounded-xl';
+                document.getElementById('plan10k').className = 'p-6 bg-gray-200 rounded-xl';
+            }
+            updatePlan();
+        }
+
+        function calcHF() {
+            var hf = parseInt(document.getElementById('hfMax').value);
+            savedHF = hf;
+            if (!hf || hf < 100 || hf > 220) {
+                document.getElementById('hfResult').innerHTML = '';
+                return;
+            }
+            
+            var html = '<div class="space-y-3">';
+            html += '<div class="bg-green-100 p-4 rounded-xl"><div class="font-bold">Erholung (&lt;67%)</div><div class="text-2xl">&lt; ' + Math.round(hf*0.67) + ' Bpm</div></div>';
+            html += '<div class="bg-blue-100 p-4 rounded-xl"><div class="font-bold">Zone 1 (68-72%)</div><div class="text-2xl">' + Math.round(hf*0.68) + '-' + Math.round(hf*0.72) + ' Bpm</div></div>';
+            html += '<div class="bg-cyan-100 p-4 rounded-xl"><div class="font-bold">Zone 2 (77-79%)</div><div class="text-2xl">' + Math.round(hf*0.77) + '-' + Math.round(hf*0.79) + ' Bpm</div></div>';
+            html += '<div class="bg-orange-100 p-4 rounded-xl"><div class="font-bold">Zone 3 (80-84%)</div><div class="text-2xl">' + Math.round(hf*0.80) + '-' + Math.round(hf*0.84) + ' Bpm</div></div>';
+            html += '<div class="bg-red-100 p-4 rounded-xl"><div class="font-bold">Zone 4 (85-88%)</div><div class="text-2xl">' + Math.round(hf*0.85) + '-' + Math.round(hf*0.88) + ' Bpm</div></div>';
+            html += '<div class="bg-purple-100 p-4 rounded-xl"><div class="font-bold">Wettkampf (89-92%)</div><div class="text-2xl">' + Math.round(hf*0.89) + '-' + Math.round(hf*0.92) + ' Bpm</div></div>';
+            html += '</div>';
+            document.getElementById('hfResult').innerHTML = html;
+        }
+
+        function formatTime(sec) {
+            var h = Math.floor(sec / 3600);
+            var m = Math.floor((sec % 3600) / 60);
+            var s = Math.round(sec % 60);
+            if (h > 0) return h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+            return m + ':' + (s < 10 ? '0' : '') + s;
+        }
+
+        function formatPace(sec) {
+            var m = Math.floor(sec / 60);
+            var s = Math.round(sec % 60);
+            return m + ':' + (s < 10 ? '0' : '') + s;
+        }
+
+        function calcZeiten() {
+            var m10 = parseInt(document.getElementById('min10k').value);
+            var s10 = parseInt(document.getElementById('sek10k').value) || 0;
+            var hM = parseInt(document.getElementById('hMarathon').value);
+            var mM = parseInt(document.getElementById('minMarathon').value) || 0;
+            
+            var times = {};
+            if (m10) {
+                var t10 = m10 * 60 + s10;
+                times.t10 = t10;
+                times.t21 = Math.round(t10 * 2.182);
+                times.t42 = Math.round(t10 * 4.7);
+                document.getElementById('hMarathon').value = '';
+                document.getElementById('minMarathon').value = '';
+            } else if (hM || mM) {
+                var t42 = (hM || 0) * 3600 + mM * 60;
+                times.t42 = t42;
+                times.t21 = Math.round(t42 / 2.154);
+                times.t10 = Math.round(t42 / 4.7);
+                document.getElementById('min10k').value = '';
+                document.getElementById('sek10k').value = '';
+            } else {
+                document.getElementById('zeitResult').innerHTML = '';
+                return;
+            }
+            
+            var html = '<div class="grid md:grid-cols-3 gap-4">';
+            html += '<div class="bg-green-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">10 Kilometer</div><div class="text-3xl font-bold">' + formatTime(times.t10) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t10/10) + '/km</div></div>';
+            html += '<div class="bg-blue-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">Halbmarathon</div><div class="text-3xl font-bold">' + formatTime(times.t21) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t21/21.097) + '/km</div></div>';
+            html += '<div class="bg-purple-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">Marathon</div><div class="text-3xl font-bold">' + formatTime(times.t42) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t42/42.195) + '/km</div></div>';
+            html += '</div>';
+            document.getElementById('zeitResult').innerHTML = html;
+        }
+
+        function calcTempos() {
+            var m10 = parseInt(document.getElementById('tMin10k').value);
+            var s10 = parseInt(document.getElementById('tSek10k').value) || 0;
+            var hM = parseInt(document.getElementById('tHMarathon').value);
+            var mM = parseInt(document.getElementById('tMinMarathon').value) || 0;
+            
+            var pM, p10;
+            if (m10) {
+                var t10 = m10 * 60 + s10;
+                var t42 = Math.round(t10 * 4.7);
+                pM = t42 / 42.195;
+                p10 = t10 / 10;
+                document.getElementById('tHMarathon').value = '';
+                document.getElementById('tMinMarathon').value = '';
+            } else if (hM || mM) {
+                var t42 = (hM || 0) * 3600 + mM * 60;
+                var t10 = Math.round(t42 / 4.7);
+                pM = t42 / 42.195;
+                p10 = t10 / 10;
+                document.getElementById('tMin10k').value = '';
+                document.getElementById('tSek10k').value = '';
+            } else {
+                document.getElementById('tempoResult').innerHTML = '';
+                return;
+            }
+            
+            var html = '<div class="space-y-4">';
+            html += '<div class="bg-green-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Lockerer Lauf (Aerobe Basis)</div><div class="text-2xl font-bold">' + formatPace(pM+60) + ' - ' + formatPace(pM+75) + ' /km</div></div>';
+            html += '<div class="bg-orange-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Renntempo</div><div class="text-2xl font-bold">' + formatPace(currentZiel==='10k'?p10:pM) + ' /km</div></div>';
+            var intMin = (currentZiel==='10k'?p10:pM)+15;
+            var intMax = (currentZiel==='10k'?p10:pM)+25;
+            html += '<div class="bg-red-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Intensiver Lauf</div><div class="text-2xl font-bold">' + formatPace(intMin) + ' - ' + formatPace(intMax) + ' /km</div></div>';
+            html += '</div>';
+            document.getElementById('tempoResult').innerHTML = html;
+        }
+
+        function updatePlan() {
+            if (!savedHF) {
+                document.getElementById('planResult').innerHTML = '<div class="bg-yellow-100 p-4 rounded-xl border-2 border-yellow-400"><p class="font-semibold">⚠️ Bitte zuerst HF-Max in der ersten Reiter eingeben</p></div>';
+                return;
+            }
+            
+            var hf = savedHF;
+            var z1 = Math.round(hf * 0.70) + '-' + Math.round(hf * 0.73);
+            var z2 = Math.round(hf * 0.77);
+            var z3 = Math.round(hf * 0.82) + '-' + Math.round(hf * 0.84);
+            var z4 = Math.round(hf * 0.88) + '-' + Math.round(hf * 0.92);
+            
+            var html = '<div class="space-y-4"><h3 class="text-xl font-bold mb-4">Dein personalisierter Plan:</h3>';
+            
+            if (currentPlan === '10k') {
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">40-60 Minuten</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">80-90 Minuten</div></div>';
+            } else {
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">50-60 Minuten</div></div>';
+                html += '<div class="bg-yellow-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Mittwoch</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">~' + z2 + ' ppm (77%)</div><div class="mt-1">90-100 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">45-60 Minuten</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">30-40 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">120-170 Minuten</div></div>';
+            }
+            
+            html += '</div>';
+            document.getElementById('planResult').innerHTML = html;
+        }
+
+        document.getElementById('hfMax').addEventListener('input', calcHF);
+        document.getElementById('min10k').addEventListener('input', calcZeiten);
+        document.getElementById('sek10k').addEventListener('input', calcZeiten);
+        document.getElementById('hMarathon').addEventListener('input', calcZeiten);
+        document.getElementById('minMarathon').addEventListener('input', calcZeiten);
+        document.getElementById('tMin10k').addEventListener('input', calcTempos);
+        document.getElementById('tSek10k').addEventListener('input', calcTempos);
+        document.getElementById('tHMarathon').addEventListener('input', calcTempos);
+        document.getElementById('tMinMarathon').addEventListener('input', calcTempos);
+    </script>
+</body>
+</html>
