@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Besser Laufen</title>
+    <title>Corre mejor</title>
 	<link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" sizes="180x180" href="icon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
@@ -18,32 +18,32 @@
     <div class="max-w-6xl mx-auto">
         <!-- Header -->
         <div class="bg-white rounded-2xl shadow-xl p-8 mb-6">
-            <h1 class="text-4xl font-bold text-gray-800 text-center">Besser Laufen</h1>
-            <p class="text-center text-gray-600 text-lg">Professionelles Lauftraining</p>
+            <h1 class="text-4xl font-bold text-gray-800 text-center">Corre mejor</h1>
+            <p class="text-center text-gray-600 text-lg">Entrenamiento profesional</p>
         </div>
 
       <!-- Tabs -->
 <div class="bg-white rounded-2xl shadow-xl mb-6 p-2">
     <div class="flex gap-2 flex-wrap">
         <button onclick="changeTab('hf')" id="tab-hf" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active">HF</button>
-        <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Zeiten</button>
-        <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tempos</button>
-        <button onclick="changeTab('plan')" id="tab-plan" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Plan</button>
-        <button onclick="changeTab('empfehlungen')" id="tab-empfehlungen" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tipps</button>
+        <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tiempos</button>
+        <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Ritmos</button>
+        <button onclick="changeTab('plan')" id="tab-plan" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Plan de entrenamiento</button>
+        <button onclick="changeTab('empfehlungen')" id="tab-empfehlungen" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Recomendaciones</button>
     </div>
 </div>
 
         <!-- HF Content -->
         <div id="content-hf">
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <h2 class="text-2xl font-bold mb-6">HF-Zonen Rechner</h2>
+                <h2 class="text-2xl font-bold mb-6">Calculadora zonas frecuencia</h2>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <label class="block text-sm font-semibold mb-2">Maximale HF</label>
+                        <label class="block text-sm font-semibold mb-2">Frecuencia máxima</label>
                         <input type="number" id="hfMax" placeholder="z.B. 185" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold mb-2">Alter (optional)</label>
+                        <label class="block text-sm font-semibold mb-2">Edad (opcional)</label>
                         <input type="number" id="alter" placeholder="z.B. 35" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                 </div>
@@ -54,15 +54,15 @@
         <!-- Zeiten Content -->
         <div id="content-zeiten" class="hidden">
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <h2 class="text-2xl font-bold mb-6">Zeitenprognose</h2>
+                <h2 class="text-2xl font-bold mb-6">pronostico marcas</h2>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-bold mb-4">Deine 10K Zeit</h3>
+                        <h3 class="font-bold mb-4">Tu marca 10K</h3>
                         <input type="number" id="min10k" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
                         <input type="number" id="sek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                     <div>
-                        <h3 class="font-bold mb-4">Oder Marathon Zeit</h3>
+                        <h3 class="font-bold mb-4">O marca maratón</h3>
                         <input type="number" id="hMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
                         <input type="number" id="minMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
@@ -74,15 +74,15 @@
         <!-- Tempos Content -->
         <div id="content-tempos" class="hidden">
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <h2 class="text-2xl font-bold mb-6">Trainingstempos</h2>
+                <h2 class="text-2xl font-bold mb-6">ritmos de entrenamientos</h2>
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <h3 class="font-bold mb-4">Deine 10K Zeit</h3>
+                        <h3 class="font-bold mb-4">Tu marca 10K</h3>
                         <input type="number" id="tMin10k" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
                         <input type="number" id="tSek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
                     <div>
-                        <h3 class="font-bold mb-4">Oder Marathon Zeit</h3>
+                        <h3 class="font-bold mb-4">O tu marca maratón</h3>
                         <input type="number" id="tHMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
                         <input type="number" id="tMinMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
                     </div>
@@ -99,7 +99,7 @@
      <div id="content-empfehlungen" class="hidden">
      <div class="bg-white rounded-2xl shadow-xl p-8">
         <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">
-            Überlegungen und Empfehlungen zur Marathon-Vorbereitung
+            Pensamientos y reconmedaciones
         </h2>
         <p class="text-center text-lg text-indigo-600 font-semibold mb-8">
             Von Manolo "El Campanero"
