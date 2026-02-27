@@ -425,11 +425,11 @@
             }
             
             var html = '<div class="space-y-4">';
-            html += '<div class="bg-green-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera suave (base aeróbica)</div><div class="text-2xl font-bold">' + formatPace(pM+60) + ' - ' + formatPace(pM+75) + '/km<//div></div>';
-            html += '<div class="bg-orange-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Ritmo competición</div><div class="text-2xl font-bold">' + formatPace(currentZiel==='10k'?p10:pM) + ' /km</div></div>';
+            html += '<div class="bg-green-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera suave (base aeróbica)</div><div class="text-2xl font-bold">' +  formatPace(pM+60) + ' - ' + formatPace(pM+75) + '/km<//div></div>';
+            html += '<div class="bg-orange-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Ritmo competición</div><div class="text-2xl font-bold">' +  formatPace(currentZiel==='10k'?p10:pM) + ' /km</div></div>';
             var intMin = (currentZiel==='10k'?p10:pM)+15;
             var intMax = (currentZiel==='10k'?p10:pM)+25;
-            html += '<div class="bg-red-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera intensiva</div><div class="text-2xl font-bold">' + formatPace(intMin) + ' - ' + formatPace(intMax) + '/km</div></div>';
+            html += '<div class="bg-red-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera intensiva</div><div class="text-2xl font-bold">' +  formatPace(intMin) + ' - ' + formatPace(intMax) + '/km</div></div>';
             html += '</div>';
             document.getElementById('tempoResult').innerHTML = html;
         }
