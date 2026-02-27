@@ -425,11 +425,11 @@
             }
             
             var html = '<div class="space-y-4">';
-            html += '<div class="bg-green-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera suave (base aeróbica)</div><div class="text-2xl font-bold">' +  formatPace(pM+60) + ' - ' + formatPace(pM+75) + '/km<//div></div>';
-            html += '<div class="bg-orange-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Ritmo competición</div><div class="text-2xl font-bold">' +  formatPace(currentZiel==='10k'?p10:pM) + ' /km</div></div>';
+            html += '<div class="bg-green-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera suave (base aeróbica)</div><div class="text-2xl font-bold">' + formatPace(pM+60) + ' - ' + formatPace(pM+75) + '/km</div></div>';
+            html += '<div class="bg-orange-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Ritmo competición</div><div class="text-2xl font-bold">' + formatPace(currentZiel==='10k'?p10:pM) + ' /km</div></div>';
             var intMin = (currentZiel==='10k'?p10:pM)+15;
             var intMax = (currentZiel==='10k'?p10:pM)+25;
-            html += '<div class="bg-red-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera intensiva</div><div class="text-2xl font-bold">' +  formatPace(intMin) + ' - ' + formatPace(intMax) + '/km</div></div>';
+            html += '<div class="bg-red-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Carrera intensiva</div><div class="text-2xl font-bold">' + formatPace(intMin) + ' - ' + formatPace(intMax) + '/km</div></div>';
             html += '</div>';
             document.getElementById('tempoResult').innerHTML = html;
         }
@@ -458,7 +458,7 @@
                 html += '<div class="bg-yellow-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Miércoles</div><div class="text-xl font-bold">Carrera suave</div><div class="text-lg mt-2">~' + z2 + ' ppm<br>(77%)</div><div class="mt-1">90-100 Minutos</div></div>';
                 html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Jueves</div><div class="text-xl font-bold">Carrera suave</div><div class="text-lg mt-2">' + z1 + ' ppm<br>(70-73%)</div><div class="mt-1">45-60 Minutos</div></div>';
                 html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sábado</div><div class="text-xl font-bold">Ritmo competición</div><div class="text-lg mt-2">' + z4 + ' ppm<br>(88-92%)</div><div class="mt-1">30-40 Minutos</div></div>';
-                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Domingo</div><div class="text-xl font-bold">Carrera larga</div><div class="text-lg mt-2">' + z1 + ' ppm<br>(70-73%)</div><div class="mt-1">120-170 Minutos</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Domingo</div><div class="text-xl font-bold">Carrera larga</div><div class="text-lg mt-2">' + z1 + ' ppm<br> (70-73%)</div><div class="mt-1">120-170 Minutos</div></div>';
             }
             
             html += '</div>';
